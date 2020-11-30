@@ -33,7 +33,7 @@ public class Movie implements Serializable{
 	private Genre genre;
 	
 	@OneToMany(mappedBy = "movie")
-	private Set<Review> reviews= new HashSet<>();
+	private Set<Review> reviews = new HashSet<>();
 	
 	public Movie() {
 		
