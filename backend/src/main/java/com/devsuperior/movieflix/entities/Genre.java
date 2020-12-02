@@ -1,10 +1,11 @@
 package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,8 +23,8 @@ public class Genre implements Serializable {
 	
 	private String name;
 	
-	@OneToMany(mappedBy = "genre")
-	private Set<Movie> movies= new HashSet<>();
+	@OneToMany(mappedBy = "genre",  fetch = FetchType.EAGER )
+	private List<Movie> movies= new ArrayList<>();
 	
 	public Genre() {
 		
@@ -50,6 +51,10 @@ public class Genre implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public List<Movie> getMovies() {
+		return movies;
+	}
 
 	@Override
 	public int hashCode() {
@@ -75,7 +80,5 @@ public class Genre implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 
 }
