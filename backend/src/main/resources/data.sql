@@ -38,6 +38,13 @@ INSERT INTO tb_movie (title, sub_Title, year, img_Url, synopsis, genre_id) VALUE
 INSERT INTO tb_movie (title, sub_Title, year, img_Url, synopsis, genre_id) VALUES ('Toy Story','Um mundo de aventuras',1995,'https://image.tmdb.org/t/p/w500_and_h282_face/w620zb5fZW0QBQlM8pZwftzBaJj.jpg','Quando um reluzente ranger do espaço chamado Buzz Lightyear invade o mundo de um cowboy de corda chamado Woody, desencadeia uma hilariante briga entre brinquedos.',4);
 INSERT INTO tb_movie (title, sub_Title, year, img_Url, synopsis, genre_id) VALUES ('Toy Story','Segundo Filme',1999,'https://image.tmdb.org/t/p/w500_and_h282_face/91qfG6VaxRsCh1SbIi1w2vxknsL.jpg','Enquanto Andy está no acampamento de férias, um ganancioso colecionador de brinquedos rapta Woody. Antes que se possa dizer "ao infinito e além", Buzz Lightyear, o Sr. Cabeça de Batata.',4);
 
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Esse Filme é muito massa! Foi o filme que lançou Will',1,1);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Bom demais!!! Bad Boys Forever!!',1,2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Esse filme é muito violento!',1,3);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('A trilha sonora do filme é épica!!!',7,2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Marvel Forever!!!!',7,4);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Ri demais',7,2);
+INSERT INTO tb_review (text, movie_id, user_id) VALUES ('Vo mais de 3 vezes, vale a pena',4,3);
 
 
 
