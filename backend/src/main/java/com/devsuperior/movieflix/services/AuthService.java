@@ -7,8 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.movieflix.entities.User;
 import com.devsuperior.movieflix.repositories.UserRepository;
-import com.devsuperior.movieflix.resources.exceptions.ForbiddenException;
-import com.devsuperior.movieflix.resources.exceptions.UnAuthorizedException;
+import com.devsuperior.movieflix.services.exceptions.ForbiddenException;
+import com.devsuperior.movieflix.services.exceptions.UnAuthorizedException;
 
 @Service
 public class AuthService {

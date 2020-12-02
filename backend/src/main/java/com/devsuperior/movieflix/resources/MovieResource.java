@@ -11,37 +11,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devsuperior.movieflix.dto.GenreDTO;
-import com.devsuperior.movieflix.services.GenreService;
-
-
+import com.devsuperior.movieflix.dto.MovieDTO;
+import com.devsuperior.movieflix.services.MovieService;
 
 @RestController
-@RequestMapping(value = "/genres")
-public class GenreResource {
+@RequestMapping(value = "/movies")
+public class MovieResource {
 	
 	@Autowired
-	private GenreService service;
+	private MovieService service;
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<GenreDTO> findById(@PathVariable Long id) {
-		
-		GenreDTO dto = service.findById(id);
-		
+	public ResponseEntity<MovieDTO> findById(@PathVariable Long id) {		
+		MovieDTO dto = service.findById(id);		
 		return ResponseEntity.ok().body(dto);
 	}
 	
 	@GetMapping
-	public ResponseEntity<Page<GenreDTO>> findAll(
+	public ResponseEntity<Page<MovieDTO>> findAll(
 			
+			@RequestParam(value = "genreId", defaultValue = "0") Long genreId,
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
-			@RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
+			@RequestParam(value = "size", defaultValue = "12") Integer size,
 			@RequestParam(value = "direction", defaultValue = "ASC") String direction,
-			@RequestParam(value = "orderBy", defaultValue = "name") String orderBy			
+			@RequestParam(value = "orderBy", defaultValue = "title") String orderBy				
 			){		
-		PageRequest pageRequest = PageRequest.of(page, linesPerPage,Direction.valueOf(direction), orderBy );
+		PageRequest pageRequest = PageRequest.of(page, size,Direction.valueOf(direction), orderBy);
 		
-		Page<GenreDTO> list = service.findAllPaged(pageRequest);
+		Page<MovieDTO> list = service.find(genreId, pageRequest);
 		
 		return ResponseEntity.ok().body(list);
 	}

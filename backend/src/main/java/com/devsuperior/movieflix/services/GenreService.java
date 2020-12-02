@@ -31,7 +31,7 @@ public class GenreService {
 	
 	@Transactional(readOnly = true)
 	public Page<GenreDTO> findAllPaged(PageRequest pageRequest){			
-		Page<Genre> list = repository.search((Pageable) pageRequest);		
+		Page<Genre> list = repository.search( pageRequest);		
 		return  list.map(x -> new GenreDTO(x));		
 	}
 }
